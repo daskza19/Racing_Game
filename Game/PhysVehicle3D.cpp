@@ -38,28 +38,109 @@ void PhysVehicle3D::Render()
 		wheel.Render();
 	}
 
-	Cube chassis(info.chassis_size.x*2, info.chassis_size.y*0.15, info.chassis_size.z);
+	Cube chassis(info.chassis_size.x, info.chassis_size.y, info.chassis_size.z);
 	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis.transform);
 	btQuaternion q = vehicle->getChassisWorldTransform().getRotation();
-	btVector3 offset(info.chassis_offset.x, info.chassis_offset.y-0.8, info.chassis_offset.z);
+	btVector3 offset(info.chassis_offset.x, info.chassis_offset.y, info.chassis_offset.z);
 	offset = offset.rotate(q.getAxis(), q.getAngle());
 	chassis.transform.M[12] += offset.getX();
 	chassis.transform.M[13] += offset.getY();
 	chassis.transform.M[14] += offset.getZ();
-	chassis.color = Green;
+	chassis.color = White;
 
-	Cube chassis2(info.chassis_size.x, info.chassis_size.y, info.chassis_size.z);
-	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis2.transform);
-	btVector3 offset2(info.chassis_offset.x, info.chassis_offset.y+15, info.chassis_offset.z);
-	offset2 = offset2.rotate(q.getAxis(), q.getAngle());
-	chassis2.transform.M[12] += offset2.getX();
-	chassis2.transform.M[13] += offset2.getY();
-	chassis2.transform.M[14] += offset2.getZ();
-	chassis2.color = Red;
+	Cube leftwall(info.leftwall_size.x, info.leftwall_size.y, info.leftwall_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&leftwall.transform);
+	btVector3 offsetleftwall(info.leftwall_offset.x, info.leftwall_offset.y, info.leftwall_offset.z);
+	offsetleftwall = offsetleftwall.rotate(q.getAxis(), q.getAngle());
+	leftwall.transform.M[12] += offsetleftwall.getX();
+	leftwall.transform.M[13] += offsetleftwall.getY();
+	leftwall.transform.M[14] += offsetleftwall.getZ();
+	leftwall.color = White;
+
+	Cube rightwall(info.rightwall_size.x, info.rightwall_size.y, info.rightwall_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&rightwall.transform);
+	btVector3 offsetrightwall(info.rightwall_offset.x, info.rightwall_offset.y, info.rightwall_offset.z);
+	offsetrightwall = offsetrightwall.rotate(q.getAxis(), q.getAngle());
+	rightwall.transform.M[12] += offsetrightwall.getX();
+	rightwall.transform.M[13] += offsetrightwall.getY();
+	rightwall.transform.M[14] += offsetrightwall.getZ();
+	rightwall.color = White;
+
+
+	Cube frontwall(info.frontwall_size.x, info.frontwall_size.y, info.frontwall_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&frontwall.transform);
+	btVector3 offsetfrontwall(info.frontwall_offset.x, info.frontwall_offset.y, info.frontwall_offset.z);
+	offsetfrontwall = offsetfrontwall.rotate(q.getAxis(), q.getAngle());
+	frontwall.transform.M[12] += offsetfrontwall.getX();
+	frontwall.transform.M[13] += offsetfrontwall.getY();
+	frontwall.transform.M[14] += offsetfrontwall.getZ();
+	frontwall.color = White;
+
+	Cube backwall(info.backwall_size.x, info.backwall_size.y, info.backwall_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&backwall.transform);
+	btVector3 offsetbackwall(info.backwall_offset.x, info.backwall_offset.y, info.backwall_offset.z);
+	offsetbackwall = offsetbackwall.rotate(q.getAxis(), q.getAngle());
+	backwall.transform.M[12] += offsetbackwall.getX();
+	backwall.transform.M[13] += offsetbackwall.getY();
+	backwall.transform.M[14] += offsetbackwall.getZ();
+	backwall.color = White;
+
+	Cube stick1(info.stick1_size.x, info.stick1_size.y, info.stick1_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&stick1.transform);
+	btVector3 offsetstick1(info.stick1_offset.x, info.stick1_offset.y, info.stick1_offset.z);
+	offsetstick1 = offsetstick1.rotate(q.getAxis(), q.getAngle());
+	stick1.transform.M[12] += offsetstick1.getX();
+	stick1.transform.M[13] += offsetstick1.getY();
+	stick1.transform.M[14] += offsetstick1.getZ();
+	stick1.color = White;
+
+	Cube stick2(info.stick2_size.x, info.stick2_size.y, info.stick2_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&stick2.transform);
+	btVector3 offsetstick2(info.stick2_offset.x, info.stick2_offset.y, info.stick2_offset.z);
+	offsetstick2 = offsetstick2.rotate(q.getAxis(), q.getAngle());
+	stick2.transform.M[12] += offsetstick2.getX();
+	stick2.transform.M[13] += offsetstick2.getY();
+	stick2.transform.M[14] += offsetstick2.getZ();
+	stick2.color = White;
+
+	Cube stick3(info.stick3_size.x, info.stick3_size.y, info.stick3_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&stick3.transform);
+	btVector3 offsetstick3(info.stick3_offset.x, info.stick3_offset.y, info.stick3_offset.z);
+	offsetstick3 = offsetstick3.rotate(q.getAxis(), q.getAngle());
+	stick3.transform.M[12] += offsetstick3.getX();
+	stick3.transform.M[13] += offsetstick3.getY();
+	stick3.transform.M[14] += offsetstick3.getZ();
+	stick3.color = White;
+
+	Cube stick4(info.stick4_size.x, info.stick4_size.y, info.stick4_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&stick4.transform);
+	btVector3 offsetstick4(info.stick4_offset.x, info.stick4_offset.y, info.stick4_offset.z);
+	offsetstick4 = offsetstick4.rotate(q.getAxis(), q.getAngle());
+	stick4.transform.M[12] += offsetstick4.getX();
+	stick4.transform.M[13] += offsetstick4.getY();
+	stick4.transform.M[14] += offsetstick4.getZ();
+	stick4.color = White;
+
+	Cube techo(info.techo_size.x, info.techo_size.y, info.techo_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&techo.transform);
+	btVector3 offsettecho(info.techo_offset.x, info.techo_offset.y, info.techo_offset.z);
+	offsettecho = offsettecho.rotate(q.getAxis(), q.getAngle());
+	techo.transform.M[12] += offsettecho.getX();
+	techo.transform.M[13] += offsettecho.getY();
+	techo.transform.M[14] += offsettecho.getZ();
+	techo.color = Purple;
 
 
 	chassis.Render();
-	chassis2.Render();
+	leftwall.Render();
+	rightwall.Render();
+	frontwall.Render();
+	backwall.Render();
+	stick1.Render();
+	stick2.Render();
+	stick3.Render();
+	stick4.Render();
+	techo.Render();
 }
 
 // ----------------------------------------------------------------------------

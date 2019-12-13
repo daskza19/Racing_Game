@@ -280,12 +280,78 @@ PhysVehicle3D* ModulePhysics3D::AddVehicle(const VehicleInfo& info)
 	shapes.add(comShape);
 
 
-	btCollisionShape* colShape = new btBoxShape(btVector3(info.chassis_size.x, info.chassis_size.y*0.5f, info.chassis_size.z*0.5f));
+	btCollisionShape* colShape = new btBoxShape(btVector3(info.chassis_size.x*0.5f, info.chassis_size.y*0.5f, info.chassis_size.z*0.5f));
 	shapes.add(colShape);
 	btTransform trans;
 	trans.setIdentity();
 	trans.setOrigin(btVector3(info.chassis_offset.x, info.chassis_offset.y, info.chassis_offset.z));
 	comShape->addChildShape(trans, colShape);
+
+
+	btCollisionShape* colleftwall = new btBoxShape(btVector3(info.leftwall_size.x*0.5f, info.leftwall_size.y*0.5f, info.leftwall_size.z*0.5f));
+	shapes.add(colleftwall);
+	btTransform transleftwall;
+	transleftwall.setIdentity();
+	transleftwall.setOrigin(btVector3(info.leftwall_offset.x, info.leftwall_offset.y, info.leftwall_offset.z));
+	comShape->addChildShape(transleftwall, colleftwall);
+
+	btCollisionShape* colrightwall = new btBoxShape(btVector3(info.rightwall_size.x*0.5f, info.rightwall_size.y*0.5f, info.rightwall_size.z*0.5f));
+	shapes.add(colrightwall);
+	btTransform transrightwall;
+	transrightwall.setIdentity();
+	transrightwall.setOrigin(btVector3(info.rightwall_offset.x, info.rightwall_offset.y, info.rightwall_offset.z));
+	comShape->addChildShape(transrightwall, colrightwall);
+
+	btCollisionShape* colfrontwall = new btBoxShape(btVector3(info.frontwall_size.x*0.5f, info.frontwall_size.y*0.5f, info.frontwall_size.z*0.5f));
+	shapes.add(colfrontwall);
+	btTransform transfrontwall;
+	transfrontwall.setIdentity();
+	transfrontwall.setOrigin(btVector3(info.frontwall_offset.x, info.frontwall_offset.y, info.frontwall_offset.z));
+	comShape->addChildShape(transfrontwall, colfrontwall);
+
+	btCollisionShape* colbackwall = new btBoxShape(btVector3(info.backwall_size.x*0.5f, info.backwall_size.y*0.5f, info.backwall_size.z*0.5f));
+	shapes.add(colbackwall);
+	btTransform transbackwall;
+	transbackwall.setIdentity();
+	transbackwall.setOrigin(btVector3(info.backwall_offset.x, info.backwall_offset.y, info.backwall_offset.z));
+	comShape->addChildShape(transbackwall, colbackwall);
+
+
+
+	btCollisionShape* colstick1 = new btBoxShape(btVector3(info.stick1_size.x*0.5f, info.stick1_size.y*0.5f, info.stick1_size.z*0.5f));
+	shapes.add(colstick1);
+	btTransform transstick1;
+	transstick1.setIdentity();
+	transstick1.setOrigin(btVector3(info.stick1_offset.x, info.stick1_offset.y, info.stick1_offset.z));
+	comShape->addChildShape(transstick1, colstick1);
+
+	btCollisionShape* colstick2 = new btBoxShape(btVector3(info.stick2_size.x*0.5f, info.stick2_size.y*0.5f, info.stick2_size.z*0.5f));
+	shapes.add(colstick2);
+	btTransform transstick2;
+	transstick2.setIdentity();
+	transstick2.setOrigin(btVector3(info.stick2_offset.x, info.stick2_offset.y, info.stick2_offset.z));
+	comShape->addChildShape(transstick2, colstick2);
+
+	btCollisionShape* colstick3 = new btBoxShape(btVector3(info.stick3_size.x*0.5f, info.stick3_size.y*0.5f, info.stick3_size.z*0.5f));
+	shapes.add(colstick3);
+	btTransform transstick3;
+	transstick3.setIdentity();
+	transstick3.setOrigin(btVector3(info.stick3_offset.x, info.stick3_offset.y, info.stick3_offset.z));
+	comShape->addChildShape(transstick3, colstick3);
+
+	btCollisionShape* colstick4 = new btBoxShape(btVector3(info.stick4_size.x*0.5f, info.stick4_size.y*0.5f, info.stick4_size.z*0.5f));
+	shapes.add(colstick4);
+	btTransform transstick4;
+	transstick4.setIdentity();
+	transstick4.setOrigin(btVector3(info.stick4_offset.x, info.stick4_offset.y, info.stick4_offset.z));
+	comShape->addChildShape(transstick4, colstick4);
+
+	btCollisionShape* coltecho = new btBoxShape(btVector3(info.techo_size.x*0.5f, info.techo_size.y*0.5f, info.techo_size.z*0.5f));
+	shapes.add(coltecho);
+	btTransform transtecho;
+	transtecho.setIdentity();
+	transtecho.setOrigin(btVector3(info.techo_offset.x, info.techo_offset.y, info.techo_offset.z));
+	comShape->addChildShape(transtecho, coltecho);
 
 
 
