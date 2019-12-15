@@ -20,6 +20,8 @@ public:
 	bool CleanUp();
 
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
+	void CreateBox(vec3 offset, vec3 size, Color color);
+	void CreateBridge(vec3 offset, vec3 size, Color color);
 
 public:
 	/*

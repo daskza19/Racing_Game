@@ -21,16 +21,16 @@ bool ModulePlayer::Start()
 	VehicleInfo car;
 
 	// Car properties ----------------------------------------
-	car.chassis_size.Set(4, 0.5,4);
+	car.chassis_size.Set(4, 0.5,5);
 	car.chassis_offset.Set(0, 1, 0);
-	car.leftwall_size.Set(0.25, 1.5, 4);
-	car.leftwall_offset.Set(1.87, 2,0);
-	car.rightwall_size.Set(0.25, 1.5, 4);
-	car.rightwall_offset.Set(-1.87, 2, 0);
-	car.frontwall_size.Set(4, 1.5, 0.25);
-	car.frontwall_offset.Set(0, 2, 1.87);
-	car.backwall_size.Set(4, 2, 0.25);
-	car.backwall_offset.Set(0, 2.25, -1.87);
+	car.leftwall_size.Set(4, 0.2, 0.5);
+	car.leftwall_offset.Set(0, 2.75, -2.25);
+	car.rightwall_size.Set(4, 0.2, 0.5);
+	car.rightwall_offset.Set(0, 2.12, 2.25);
+	car.frontwall_size.Set(4, 0.8, 1.25);
+	car.frontwall_offset.Set(0, 1.66, 1.87);
+	car.backwall_size.Set(4, 1.4, 2);
+	car.backwall_offset.Set(0, 1.97, -1.5);
 
 	car.stick1_size.Set(0.25, 4, 0.25);
 	car.stick1_offset.Set(1.87, 3.5, -1.87);
@@ -40,7 +40,7 @@ bool ModulePlayer::Start()
 	car.stick3_offset.Set(1.87, 3.5, 1.87);
 	car.stick4_size.Set(0.25, 4, 0.25);
 	car.stick4_offset.Set(-1.87, 3.5, 1.87);
-	car.techo_size.Set(4.1, 0.2, 4.35);
+	car.techo_size.Set(4.1, 0.2, 5);
 	car.techo_offset.Set(0, 5.5, 0);
 
 	car.mass = 500.0f;

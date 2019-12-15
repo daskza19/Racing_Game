@@ -37,6 +37,23 @@ bool ModuleCamera3D::CleanUp()
 	return true;
 }
 
+
+// -----------------------------------------------------------------
+update_status ModuleCamera3D::PreUpdate(float dt)
+{
+	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN){
+		if (viewback == true) {
+			viewback = false;
+		}
+		else {
+			viewback = true;
+		}
+	}
+
+	return UPDATE_CONTINUE;
+}
+
+
 // -----------------------------------------------------------------
 update_status ModuleCamera3D::Update(float dt)
 {
@@ -100,17 +117,33 @@ update_status ModuleCamera3D::Update(float dt)
 		Position = Reference + Z * length(Position);
 	}
 	else {
-		mat4x4 matrix;
-		App->player->vehicle->GetTransform(&matrix);
+		if (viewback == true) {
+			mat4x4 matrix;
+			App->player->vehicle->GetTransform(&matrix);
 
-		Position = matrix.translation();
+			Position = matrix.translation();
 
-		X = vec3{ matrix[0], matrix[1], matrix[2] };
-		Y = vec3{ matrix[4], matrix[5], matrix[6] };
-		Z = vec3{ matrix[8], matrix[9], matrix[10] };
+			X = vec3{ matrix[0], matrix[1], matrix[2] };
+			Y = vec3{ matrix[4], matrix[5], matrix[6] };
+			Z = vec3{ matrix[8], matrix[9], matrix[10] };
 
-		vec3 VehicleLocation = { matrix[12], matrix[13] + 7, matrix[14] };
-		Look((VehicleLocation)-Z * 18, VehicleLocation, true);
+			vec3 VehicleLocation = { matrix[12], matrix[13] + 7, matrix[14] };
+			Look((VehicleLocation)-Z * 20, VehicleLocation, true);
+		}
+		else {
+			mat4x4 matrix;
+			App->player->vehicle->GetTransform(&matrix);
+
+			Position = matrix.translation();
+
+			X = vec3{ matrix[0], matrix[1], matrix[2] };
+			Y = vec3{ matrix[4], matrix[5], matrix[6] };
+			Z = vec3{ matrix[8], matrix[9], matrix[10] };
+
+			vec3 VehicleLocation = { matrix[12], matrix[13]+7, matrix[14]};
+			vec3 CameraLocation = { VehicleLocation.x+10, VehicleLocation.y, VehicleLocation.z-20};
+			LookView2((CameraLocation), VehicleLocation, false);
+		}
 	}
 
 	// Recalculate matrix -------------
@@ -138,13 +171,31 @@ void ModuleCamera3D::Look(const vec3 &Position, const vec3 &Reference, bool Rota
 	CalculateViewMatrix();
 }
 
+void ModuleCamera3D::LookView2(const vec3 &Position, const vec3 &Reference, bool RotateAroundReference)
+{
+	this->Position = Position;
+	this->Reference = Reference;
+
+	Z = normalize(Position-Reference);
+	X= normalize(cross(vec3(0.0f, 1.0f, 0.0f), Z));
+	Y = cross(Z, X);
+
+	if (!RotateAroundReference)
+	{
+		this->Reference = this->Position;
+		this->Position += Z * 0.05f + X*0.05;
+	}
+
+	CalculateViewMatrix();
+}
+
 // -----------------------------------------------------------------
 void ModuleCamera3D::LookAt( const vec3 &Spot)
 {
 	Reference = Spot;
 
 	Z = normalize(Position - Reference);
-	X = normalize(cross(vec3(0.0f, 1.0f, 0.0f), Z));
+	X = normalize(Z);
 	Y = cross(Z, X);
 
 	CalculateViewMatrix();

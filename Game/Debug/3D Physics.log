@@ -1,2 +1,5 @@
-﻿  ModulePhysics3D.cpp
+﻿  ModuleSceneIntro.cpp
+c:\users\josep\documents\github\racing_game\game\modulesceneintro.cpp(79): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\josep\documents\github\racing_game\game\modulesceneintro.cpp(84): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\josep\documents\github\racing_game\game\modulesceneintro.cpp(89): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
   3D Physics.vcxproj -> C:\Users\Josep\Documents\GitHub\Racing_Game\Game\Debug\3D Physics - class5.exe
