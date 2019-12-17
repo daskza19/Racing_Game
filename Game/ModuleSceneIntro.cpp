@@ -194,6 +194,38 @@ update_status ModuleSceneIntro::Update(float dt)
 	CreateBox(0,{ 0, 1, 0 },{ 114,12.5,69 }, { 3,0.5,20 }, Brown);
 	CreateBox(0,{ 0, 1, 0 },{ 117,13,69 }, { 3,0.5,20 }, Brown);
 
+	//UP BRIDGE
+	/*
+	for (float i = 0; i < 50; i++) {
+		CreateBox(0, { 0, 1, 0 }, { 0,i/2,i * 3 }, { 25,0.5,3 }, Brown);
+		if ((int)i %2 == 0) {
+			CreateBox(45, { 0, 1, 0 }, { -10, i / 2 + 1.5f,i * 3 }, { 1,3,1 }, White);
+			CreateBox(45, { 0, 1, 0 }, { 10, i / 2 + 1.5f,i * 3 }, { 1,3,1 }, Blue);
+		}
+		else {
+			CreateBox(45, { 0, 1, 0 }, { -10, i / 2 + 1.5f,i * 3 }, { 1,3,1 }, Blue);
+			CreateBox(45, { 0, 1, 0 }, { 10, i / 2 + 1.5f,i * 3 }, { 1,3,1 }, White);
+		}
+
+	}
+	*/
+
+	//DOWN BRIDGE
+	/*
+	for (float i = 50; i >0; i--) {
+		CreateBox(0, { 0, 1, 0 }, { 0,i/2,i * -3 }, { 25,0.5,3 }, Brown);
+		if ((int)i %2 == 0) {
+			CreateBox(45, { 0, 1, 0 }, { -10, i / 2 + 1.5f,i * -3 }, { 1,3,1 }, White);
+			CreateBox(45, { 0, 1, 0 }, { 10, i / 2 + 1.5f,i * -3 }, { 1,3,1 }, Blue);
+		}
+		else {
+			CreateBox(45, { 0, 1, 0 }, { -10, i /2 + 1.5f,i * -3 }, { 1,3,1 }, Blue);
+			CreateBox(45, { 0, 1, 0 }, { 10, i / 2 + 1.5f,i * -3 }, { 1,3,1 }, White);
+		}
+
+	}
+	*/
+
 	donecolliders = true;
 	return UPDATE_CONTINUE;
 }

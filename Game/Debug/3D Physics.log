@@ -1,6 +1,6 @@
 ﻿  ModuleSceneIntro.cpp
-d:\documents\github\racing_game\game\modulesceneintro.cpp(212): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-d:\documents\github\racing_game\game\modulesceneintro.cpp(238): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-d:\documents\github\racing_game\game\modulesceneintro.cpp(243): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-d:\documents\github\racing_game\game\modulesceneintro.cpp(248): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  3D Physics.vcxproj -> D:\Documents\GitHub\Racing_Game\Game\Debug\3D Physics - class5.exe
+c:\users\josepsa9\documents\github\racing_game\game\modulesceneintro.cpp(244): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\josepsa9\documents\github\racing_game\game\modulesceneintro.cpp(270): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\josepsa9\documents\github\racing_game\game\modulesceneintro.cpp(275): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\josepsa9\documents\github\racing_game\game\modulesceneintro.cpp(280): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  3D Physics.vcxproj -> C:\Users\josepsa9\Documents\GitHub\Racing_Game\Game\Debug\3D Physics - class5.exe
