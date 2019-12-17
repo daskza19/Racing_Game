@@ -20,7 +20,7 @@ public:
 	bool CleanUp();
 
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
-	void CreateBox(vec3 offset, vec3 size, Color color);
+	void CreateBox(int nangle, vec3 angle,vec3 offset, vec3 size, Color color);
 	void RenderBox(vec3 offset, vec3 size, Color color);
 	void CreateBridge(vec3 offset, vec3 size, Color color);
 
@@ -46,4 +46,6 @@ public:
 	PhysMotor3D* left_wheel;
 	PhysMotor3D* right_wheel;
 
+private:
+	bool donecolliders = false;
 };
