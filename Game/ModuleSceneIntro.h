@@ -24,6 +24,9 @@ public:
 	void RenderBox(vec3 offset, vec3 size, Color color);
 	void CreateBridge(vec3 offset, vec3 size, Color color);
 
+	void StartPodium();
+	void CreateBoxesMap();
+
 public:
 	/*
 	PhysBody3D* pb_snake[MAX_SNAKE];
