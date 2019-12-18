@@ -39,48 +39,17 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,0 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,3 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,6 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,9 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,12 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,15 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,18 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,21 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,24 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,27 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,30 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,33 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,36 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,39 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,42 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,45 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,48 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,51 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,54 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ 10,1.5,57 }, { 1,3,1 }, White);
+	for (int g = 0; g < 31; g++) {
 
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,0 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,3 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,6 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,9 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,12 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,15 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,18 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,21 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,24 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,27 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,30 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,33 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,36 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,39 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,42 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,45 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,48 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,51 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,54 }, { 1,3,1 }, Blue);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,57 }, { 1,3,1 }, White);
-	CreateBox(45,{ 0, 1, 0 },{ -10,1.5,60 }, { 1,3,1 }, Blue);
+		if ((int)g % 2 == 0) {
+			CreateBox(45, { 0, 1, 0 }, { 10, 1.5,57 - g * 3.0f }, { 1,3,1 }, Blue);
+			CreateBox(45, { 0, 1, 0 }, { -10, 1.5,57 - g * 3.0f }, { 1,3,1 }, Blue);
+		}
+		else {
+			CreateBox(45, { 0, 1, 0 }, { 10, 1.5,57 - g * 3.0f }, { 1,3,1 }, White);
+			CreateBox(45, { 0, 1, 0 }, { -10, 1.5,57 - g * 3.0f }, { 1,3,1 }, White);
+		}
+	}
 
 	CreateBox(45,{ 0, 1, 0 },{ -9.5,1.5,63 }, { 1,3,1 }, White);
 	CreateBox(45,{ 0, 1, 0 },{ -9,1.5,66 }, { 1,3,1 }, Blue);
@@ -200,6 +169,8 @@ update_status ModuleSceneIntro::Update(float dt)
 		}
 	}
 
+
+
 	for (int g = 0; g < 54; g++) {
 
 		if ((int)g % 2 == 0) {
@@ -212,13 +183,7 @@ update_status ModuleSceneIntro::Update(float dt)
 		}
 	}
 
-	CreateBox(45, { 0, 1, 0 }, { 113.5, 1.5,-39.85 }, { 1,3,1 }, White);
-	CreateBox(45, { 0, 1, 0 }, { 110, 1.5,-38.85 }, { 1,3,1 }, Blue);
-	CreateBox(45, { 0, 1, 0 }, { 107, 1.5,-37 }, { 1,3,1 }, White);
-	CreateBox(45, { 0, 1, 0 }, { 103, 1.5,-34 }, { 1,3,1 }, Blue);
-	CreateBox(45, { 0, 1, 0 }, { 99, 1.5,-31 }, { 1,3,1 }, White);
-	CreateBox(45, { 0, 1, 0 }, { 97, 1.5,-27 }, { 1,3,1 }, Blue);
-	CreateBox(45, { 0, 1, 0 }, { 96, 1.5, -22.5 }, { 1,3,1 }, White);
+
 
 	//CURVA
 	CreateBox(45, { 0, 1, 0 }, { 95, 1.5,163 }, { 1,3,1 }, Blue);
@@ -280,6 +245,25 @@ update_status ModuleSceneIntro::Update(float dt)
 		}
 	}
 
+	//CreateBox(45, { 0, 1, 0 }, { -162.5, 1.5,143.85 }, { 1,3,1 }, White);
+	//CreateBox(45, { 0, 1, 0 }, { -159, 1.5,142.85 }, { 1,3,1 }, Blue);
+	//CreateBox(45, { 0, 1, 0 }, { -156, 1.5,141 }, { 1,3,1 }, White);
+	//CreateBox(45, { 0, 1, 0 }, { -152, 1.5,138 }, { 1,3,1 }, Blue);
+	//CreateBox(45, { 0, 1, 0 }, { -148, 1.5,135 }, { 1,3,1 }, White);
+	//CreateBox(45, { 0, 1, 0 }, { -146, 1.5,134 }, { 1,3,1 }, Blue);
+	//CreateBox(45, { 0, 1, 0 }, { -145, 1.5, 139.5 }, { 1,3,1 }, White);
+
+	CreateBox(45, { 0, 1, 0 }, { -162.5,1.5,150 }, { 1,3,1 }, White);
+	CreateBox(45, { 0, 1, 0 }, { -161,1.5,153 }, { 1,3,1 }, Blue);
+	CreateBox(45, { 0, 1, 0 }, { -160,1.5,156 }, { 1,3,1 }, White);
+	CreateBox(45, { 0, 1, 0 }, { -158,1.5,159 }, { 1,3,1 }, Blue);
+	CreateBox(45, { 0, 1, 0 }, { -155,1.5,161.5 }, { 1,3,1 }, White);
+	CreateBox(45, { 0, 1, 0 }, { -151.5,1.5,163.25 }, { 1,3,1 }, Blue);
+	CreateBox(45, { 0, 1, 0 }, { -145,1.5,166.5 }, { 1,3,1 }, White);
+	CreateBox(45, { 0, 1, 0 }, { -140,1.5,167 }, { 1,3,1 }, Blue);
+	CreateBox(45, { 0, 1, 0 }, { -144.5,167 }, { 1,3,1 }, White);
+	CreateBox(45, { 0, 1, 0 }, { -145,1.5,167 }, { 1,3,1 }, Blue);
+
 	for (int g = 0; g < 59; g++) {
 
 		if ((int)g % 2 == 0) {
@@ -299,7 +283,7 @@ update_status ModuleSceneIntro::Update(float dt)
 	CreateBox(45, { 0, 1, 0 }, { -152, 1.5,-53.5 }, { 1,3,1 }, White);
 	CreateBox(45, { 0, 1, 0 }, { -148, 1.5, -54.5 }, { 1,3,1 }, Blue);
 
-	for (int g = 0; g < 44; g++) {
+	for (int g = 0; g < 45; g++) {
 
 		if ((int)g % 2 == 0) {
 			CreateBox(45, { 0, 1, 0 }, { -145 + g * 3.0f, 1.5, -35}, { 1,3,1 }, White);
@@ -310,6 +294,8 @@ update_status ModuleSceneIntro::Update(float dt)
 			CreateBox(45, { 0, 1, 0 }, { -145 + g * 3.0f, 1.5, -55 }, { 1,3,1 }, Blue);
 		}
 	}
+
+
 
 	donecolliders = true;
 	return UPDATE_CONTINUE;
