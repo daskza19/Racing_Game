@@ -40,6 +40,12 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
+	//This is to Make the Future minium velocity in the first frame,
+	//because the future vel changes after the firsts 10 sec.
+	if (donecolliders == false) {
+		App->player->future_minimum_vel = rand() % 60 + 50;
+	}
+
 	CreateBoxesMap();
 
 	donecolliders = true;
@@ -368,40 +374,16 @@ void ModuleSceneIntro::CreateBox(int nangle,vec3 angle,vec3 offset, vec3 size, C
 	cube.Render();
 }
 
-void ModuleSceneIntro::RenderBox(vec3 offset, vec3 size, Color color) {
+void ModuleSceneIntro::CreateCylinder(float nangle, vec3 angle, float height, float radius, vec3 pos, Color color) {
+	Cylinder c;
+	c.height = height;
+	c.radius = radius;
+	c.SetPos(pos.x, pos.y, pos.z);
+	c.color = color;
+	c.SetRotation(nangle, angle);
 
-	Cube cube;
-	cube.size = size;
-	cube.SetPos(offset.x, offset.y, offset.z);
-	cube.color = color;
-	cube.SetRotation(45, { 0,1,0 });
-	cube.Render();
-}
-
-
-void ModuleSceneIntro::CreateBridge(vec3 offset, vec3 size, Color color) {
-	Cube cube;
-	cube.size = size;
-	cube.SetPos(offset.x, offset.y, offset.z);
-	cube.color = color;
-
-	Cube cube2;
-	cube2.size = size;
-	cube2.SetPos(offset.x, offset.y, offset.z+2.3);
-	cube2.color = color;
-
-	Cube cube3;
-	cube3.size = size;
-	cube3.SetPos(offset.x, offset.y, offset.z+4.6);
-	cube3.color = color;
-
-	Cube cube4;
-	cube4.size = size;
-	cube4.SetPos(offset.x, offset.y, offset.z+6.9);
-	cube4.color = color;
-
-	cube.Render();
-	cube2.Render();
-	cube3.Render();
-	cube4.Render();
+	if (donecolliders == false) {
+		App->physics->AddBody(c, 0);
+	}
+	c.Render();
 }

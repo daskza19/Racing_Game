@@ -5,9 +5,12 @@
 #include "PhysVehicle3D.h"
 #include "PhysBody3D.h"
 
+
+
 ModulePlayer::ModulePlayer(Application* app, bool start_enabled) : Module(app, start_enabled), vehicle(NULL)
 {
 	turn = acceleration = brake = 0.0f;
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -117,7 +120,9 @@ bool ModulePlayer::Start()
 	car.wheels[3].steering = false;
 
 	vehicle = App->physics->AddVehicle(car);
-	vehicle->SetPos(0, 12, 10);
+	vehicle->SetPos(0, 0, 10);
+	
+	loosesound=App->audio->LoadFx("Music/Loose.wav");
 	
 	return true;
 }
@@ -137,7 +142,6 @@ update_status ModulePlayer::Update(float dt)
 
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 	{
-		//acceleration = MAX_ACCELERATION;
 		if (vehicle->GetKmh() < -5) {
 			brake = -BRAKE_POWER;
 		}
@@ -166,7 +170,6 @@ update_status ModulePlayer::Update(float dt)
 		else {
 			acceleration = -MAX_ACCELERATION;
 		}
-
 	}
 
 	vehicle->ApplyEngineForce(acceleration);
@@ -175,12 +178,53 @@ update_status ModulePlayer::Update(float dt)
 
 	vehicle->Render();
 
-	char title[80];
-	sprintf_s(title, "%.1f Km/h", vehicle->GetKmh());
+	time = (float)timer.Read()/1000;
+
+	CreateMiniumVelocity();
+	CheckMiniumVelocity();
+
+	char title[200];
+	sprintf_s(title, "TIME: %.1f s || AVELOCITY: %.1f Km/h || ACTUAL MINIMUN VELOCITY: %.1f Km/h || FUTURE MINIMUN VELOCITY: %.1f Km/h || %s", time, vehicle->GetKmh(), actual_minimum_vel, future_minimum_vel,win ? "You're winning" : "You are very bad player man");
 	App->window->SetTitle(title);
 
 	return UPDATE_CONTINUE;
 }
 
+void ModulePlayer::CreateMiniumVelocity()
+{
+	if ((changevelocity == true) && (time >= 1) && (((uint)time % 10) == 0)) {
 
+		actual_minimum_vel = future_minimum_vel;
+		future_minimum_vel = rand() % 60 + 50;
+		changevelocity = false;
+	}
+	if ((time >= 1) && (((uint)time % 10 - 1) == 0)) {
 
+		changevelocity = true;
+	}
+}
+
+void ModulePlayer::CheckMiniumVelocity()
+{
+	if ((vehicle->GetKmh() < actual_minimum_vel)&&(time>=10)) {
+		if (time_loose < 1) {
+			win = false;
+			ResetWhenLoose();
+		}
+		else {
+			time_loose++;
+			if (time_loose == 100000) time_loose = 0;
+		}
+	}
+}
+
+void ModulePlayer::ResetWhenLoose()
+{
+	App->audio->PlayFx(loosesound, 1);
+	//vehicle->SetPos(0, 0, 10);
+	//vehicle->Brake(1000);
+	//acceleration = 0.0f;
+	//vehicle->ApplyEngineForce(acceleration);
+	//vehicle->Turn(0);
+	//vehicle->Brake(brake);
+}

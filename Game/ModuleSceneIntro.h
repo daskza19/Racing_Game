@@ -20,21 +20,20 @@ public:
 	bool CleanUp();
 
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
-	void CreateBox(int nangle, vec3 angle,vec3 offset, vec3 size, Color color);
-	void RenderBox(vec3 offset, vec3 size, Color color);
-	void CreateBridge(vec3 offset, vec3 size, Color color);
 
+	//Create the Boxes
+	void CreateBox(int nangle, vec3 angle,vec3 offset, vec3 size, Color color);
+
+	void CreateCylinder(float, vec3 , float, float, vec3, Color);
+
+	//Do the START boxes and Collisions
 	void StartPodium();
+
+	//Do all the Map Boxes and Collisions
 	void CreateBoxesMap();
 
 public:
-	/*
-	PhysBody3D* pb_snake[MAX_SNAKE];
-	Sphere s_snake[MAX_SNAKE];
 
-	PhysBody3D* pb_snake2[MAX_SNAKE];
-	Sphere s_snake2[MAX_SNAKE];
-	*/
 	p2DynArray<Cube> listcubes;
 
 	PhysBody3D* pb_chassis;
