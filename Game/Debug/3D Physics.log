@@ -1,19 +1,19 @@
 ﻿  ModuleSceneIntro.cpp
-d:\documents\github\racing_game\game\modulesceneintro.cpp(198): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 d:\documents\github\racing_game\game\modulesceneintro.cpp(199): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-d:\documents\github\racing_game\game\modulesceneintro.cpp(216): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-d:\documents\github\racing_game\game\modulesceneintro.cpp(275): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-d:\documents\github\racing_game\game\modulesceneintro.cpp(329): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-d:\documents\github\racing_game\game\modulesceneintro.cpp(331): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-d:\documents\github\racing_game\game\modulesceneintro.cpp(335): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-d:\documents\github\racing_game\game\modulesceneintro.cpp(339): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+d:\documents\github\racing_game\game\modulesceneintro.cpp(200): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+d:\documents\github\racing_game\game\modulesceneintro.cpp(217): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+d:\documents\github\racing_game\game\modulesceneintro.cpp(276): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+d:\documents\github\racing_game\game\modulesceneintro.cpp(330): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+d:\documents\github\racing_game\game\modulesceneintro.cpp(332): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+d:\documents\github\racing_game\game\modulesceneintro.cpp(336): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 d:\documents\github\racing_game\game\modulesceneintro.cpp(340): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-d:\documents\github\racing_game\game\modulesceneintro.cpp(345): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+d:\documents\github\racing_game\game\modulesceneintro.cpp(341): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 d:\documents\github\racing_game\game\modulesceneintro.cpp(346): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-d:\documents\github\racing_game\game\modulesceneintro.cpp(348): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-d:\documents\github\racing_game\game\modulesceneintro.cpp(352): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-d:\documents\github\racing_game\game\modulesceneintro.cpp(363): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-d:\documents\github\racing_game\game\modulesceneintro.cpp(389): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-d:\documents\github\racing_game\game\modulesceneintro.cpp(394): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-d:\documents\github\racing_game\game\modulesceneintro.cpp(399): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+d:\documents\github\racing_game\game\modulesceneintro.cpp(347): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+d:\documents\github\racing_game\game\modulesceneintro.cpp(349): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+d:\documents\github\racing_game\game\modulesceneintro.cpp(353): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+d:\documents\github\racing_game\game\modulesceneintro.cpp(364): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+d:\documents\github\racing_game\game\modulesceneintro.cpp(390): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+d:\documents\github\racing_game\game\modulesceneintro.cpp(395): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+d:\documents\github\racing_game\game\modulesceneintro.cpp(400): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
   3D Physics.vcxproj -> D:\Documents\GitHub\Racing_Game\Game\Debug\3D Physics - class5.exe
