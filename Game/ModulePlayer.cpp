@@ -26,10 +26,10 @@ bool ModulePlayer::Start()
 	// Car properties ----------------------------------------
 	car.chassis_size.Set(4, 0.5,5);
 	car.chassis_offset.Set(0, 1, 0);
-	car.leftwall_size.Set(4, 0.2, 0.5);
-	car.leftwall_offset.Set(0, 2.75, -2.25);
-	car.rightwall_size.Set(4, 0.2, 0.5);
-	car.rightwall_offset.Set(0, 2.12, 2.25);
+	car.backdecoration_size.Set(4, 0.2, 0.5);
+	car.backdecoration_offset.Set(0, 2.75, -2.25);
+	car.frontdecoration_size.Set(4, 0.2, 0.5);
+	car.frontdecoration_offset.Set(0, 2.12, 2.25);
 	car.frontwall_size.Set(4, 0.8, 1.25);
 	car.frontwall_offset.Set(0, 1.66, 1.87);
 	car.backwall_size.Set(4, 1.4, 2);
@@ -146,6 +146,12 @@ update_status ModulePlayer::Update(float dt)
 		ResetWhenLoose();
 	}
 
+	if (App->input->GetKey(SDL_SCANCODE_F4) == KEY_DOWN)
+	{
+		if (godmode == false)godmode = true;
+		else godmode = false;
+	}
+
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 	{
 		if (vehicle->GetKmh() < -5) {
@@ -190,7 +196,7 @@ update_status ModulePlayer::Update(float dt)
 	CheckMiniumVelocity();
 
 	char title[200];
-	sprintf_s(title, "TIME: %.1f s || AVELOCITY: %.1f Km/h || ACTUAL MINIMUN VELOCITY: %.1f Km/h || FUTURE MINIMUN VELOCITY: %.1f Km/h || %s", time, vehicle->GetKmh(), actual_minimum_vel, future_minimum_vel,win ? "You're winning" : "You are very bad player man");
+	sprintf_s(title, "Time: %.1f s || AVelocity: %.1f Km/h || Actual Minimun Velocity: %.1f Km/h || Future Minimun Velocity: %.1f Km/h || GodMode: %s", time, vehicle->GetKmh(), actual_minimum_vel, future_minimum_vel,godmode ? "ON" : "OFF");
 	App->window->SetTitle(title);
 
 	return UPDATE_CONTINUE;
@@ -213,7 +219,7 @@ void ModulePlayer::CreateMiniumVelocity()
 void ModulePlayer::CheckMiniumVelocity()
 {
 	if (vehicle->GetKmh() < actual_minimum_vel) {
-		if (time >= 10){
+		if ((time >= 10)&&(godmode==false)){
 			win = false;
 			ResetWhenLoose();
 		}
@@ -223,12 +229,11 @@ void ModulePlayer::CheckMiniumVelocity()
 
 void ModulePlayer::ResetWhenLoose()
 {
-	if ((((uint)time % 10) == 0)|| (win==true)) {
-		App->audio->PlayFx(loosesound, 1);
-		vehicle->ResetVelocityAndRotation();
-		App->player->acceleration = 0;
-		App->player->brake = 0;
-		App->player->turn = 0;
-		vehicle->SetPos(0, 0, 10);
-	}
+	actual_minimum_vel = 0;
+	App->audio->PlayFx(loosesound, 1);
+	vehicle->ResetVelocityAndRotation();
+	App->player->acceleration = 0;
+	App->player->brake = 0;
+	App->player->turn = 0;
+	vehicle->SetPos(0, 0, 10);
 }

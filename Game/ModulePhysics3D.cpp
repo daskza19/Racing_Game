@@ -287,20 +287,20 @@ PhysVehicle3D* ModulePhysics3D::AddVehicle(const VehicleInfo& info)
 	trans.setOrigin(btVector3(info.chassis_offset.x, info.chassis_offset.y, info.chassis_offset.z));
 	comShape->addChildShape(trans, colShape);
 
-
-	btCollisionShape* colleftwall = new btBoxShape(btVector3(info.leftwall_size.x*0.5f, info.leftwall_size.y*0.5f, info.leftwall_size.z*0.5f));
-	shapes.add(colleftwall);
-	btTransform transleftwall;
-	transleftwall.setIdentity();
-	transleftwall.setOrigin(btVector3(info.leftwall_offset.x, info.leftwall_offset.y, info.leftwall_offset.z));
-	comShape->addChildShape(transleftwall, colleftwall);
-
-	btCollisionShape* colrightwall = new btBoxShape(btVector3(info.rightwall_size.x*0.5f, info.rightwall_size.y*0.5f, info.rightwall_size.z*0.5f));
-	shapes.add(colrightwall);
-	btTransform transrightwall;
-	transrightwall.setIdentity();
-	transrightwall.setOrigin(btVector3(info.rightwall_offset.x, info.rightwall_offset.y, info.rightwall_offset.z));
-	comShape->addChildShape(transrightwall, colrightwall);
+	
+	btCollisionShape* colbackdecoration = new btBoxShape(btVector3(info.backdecoration_size.x*0.5f, info.backdecoration_size.y*0.5f, info.backdecoration_size.z*0.5f));
+	shapes.add(colbackdecoration);
+	btTransform transbackdecoration;
+	transbackdecoration.setIdentity();
+	transbackdecoration.setOrigin(btVector3(info.backdecoration_offset.x, info.backdecoration_offset.y, info.backdecoration_offset.z));
+	comShape->addChildShape(transbackdecoration, colbackdecoration);
+	
+	btCollisionShape* colfrontdecoration = new btBoxShape(btVector3(info.frontdecoration_size.x*0.5f, info.frontdecoration_size.y*0.5f, info.frontdecoration_size.z*0.5f));
+	shapes.add(colfrontdecoration);
+	btTransform transfrontdecoration;
+	transfrontdecoration.setIdentity();
+	transfrontdecoration.setOrigin(btVector3(info.frontdecoration_offset.x, info.frontdecoration_offset.y, info.frontdecoration_offset.z));
+	comShape->addChildShape(transfrontdecoration, colfrontdecoration);
 
 	btCollisionShape* colfrontwall = new btBoxShape(btVector3(info.frontwall_size.x*0.5f, info.frontwall_size.y*0.5f, info.frontwall_size.z*0.5f));
 	shapes.add(colfrontwall);

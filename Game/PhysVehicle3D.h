@@ -26,10 +26,10 @@ struct VehicleInfo
 	
 	vec3 chassis_size;
 	vec3 chassis_offset;
-	vec3 leftwall_size;
-	vec3 leftwall_offset;
-	vec3 rightwall_size;
-	vec3 rightwall_offset;
+	vec3 backdecoration_size;
+	vec3 backdecoration_offset;
+	vec3 frontdecoration_size;
+	vec3 frontdecoration_offset;
 	vec3 frontwall_size;
 	vec3 frontwall_offset;
 	vec3 backwall_size;

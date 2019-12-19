@@ -25,6 +25,7 @@ public:
 	void ResetWhenLoose();
 
 public:
+	//Vehicle variables
 	float* mattrans;
 	Timer timer;
 	float time = 0.0f;
@@ -32,10 +33,14 @@ public:
 	float turn;
 	float acceleration;
 	float brake;
+
+	//Change Speed Variables
 	float actual_minimum_vel = 0.0f;
 	float future_minimum_vel = 0.0f;
 	bool changevelocity = false;
-	float time_loose = 0.0f;
-	bool win = true;
+
+	//Player conditions
 	unsigned int loosesound;
+	bool win = true;
+	bool godmode = false;
 };

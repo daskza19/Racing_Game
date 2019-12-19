@@ -48,23 +48,23 @@ void PhysVehicle3D::Render()
 	chassis.transform.M[14] += offset.getZ();
 	chassis.color = White;
 
-	Cube leftwall(info.leftwall_size.x, info.leftwall_size.y, info.leftwall_size.z);
-	vehicle->getChassisWorldTransform().getOpenGLMatrix(&leftwall.transform);
-	btVector3 offsetleftwall(info.leftwall_offset.x, info.leftwall_offset.y, info.leftwall_offset.z);
-	offsetleftwall = offsetleftwall.rotate(q.getAxis(), q.getAngle());
-	leftwall.transform.M[12] += offsetleftwall.getX();
-	leftwall.transform.M[13] += offsetleftwall.getY();
-	leftwall.transform.M[14] += offsetleftwall.getZ();
-	leftwall.color = White;
+	Cube backdecoration(info.backdecoration_size.x, info.backdecoration_size.y, info.backdecoration_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&backdecoration.transform);
+	btVector3 offsetfrontdecoration(info.backdecoration_offset.x, info.backdecoration_offset.y, info.backdecoration_offset.z);
+	offsetfrontdecoration = offsetfrontdecoration.rotate(q.getAxis(), q.getAngle());
+	backdecoration.transform.M[12] += offsetfrontdecoration.getX();
+	backdecoration.transform.M[13] += offsetfrontdecoration.getY();
+	backdecoration.transform.M[14] += offsetfrontdecoration.getZ();
+	backdecoration.color = White;
 
-	Cube rightwall(info.rightwall_size.x, info.rightwall_size.y, info.rightwall_size.z);
-	vehicle->getChassisWorldTransform().getOpenGLMatrix(&rightwall.transform);
-	btVector3 offsetrightwall(info.rightwall_offset.x, info.rightwall_offset.y, info.rightwall_offset.z);
-	offsetrightwall = offsetrightwall.rotate(q.getAxis(), q.getAngle());
-	rightwall.transform.M[12] += offsetrightwall.getX();
-	rightwall.transform.M[13] += offsetrightwall.getY();
-	rightwall.transform.M[14] += offsetrightwall.getZ();
-	rightwall.color = White;
+	Cube frontdecoration(info.frontdecoration_size.x, info.frontdecoration_size.y, info.frontdecoration_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&frontdecoration.transform);
+	btVector3 offsetbackdecoration(info.frontdecoration_offset.x, info.frontdecoration_offset.y, info.frontdecoration_offset.z);
+	offsetbackdecoration = offsetbackdecoration.rotate(q.getAxis(), q.getAngle());
+	frontdecoration.transform.M[12] += offsetbackdecoration.getX();
+	frontdecoration.transform.M[13] += offsetbackdecoration.getY();
+	frontdecoration.transform.M[14] += offsetbackdecoration.getZ();
+	frontdecoration.color = White;
 
 
 	Cube frontwall(info.frontwall_size.x, info.frontwall_size.y, info.frontwall_size.z);
@@ -132,8 +132,8 @@ void PhysVehicle3D::Render()
 
 
 	chassis.Render();
-	leftwall.Render();
-	rightwall.Render();
+	backdecoration.Render();
+	frontdecoration.Render();
 	frontwall.Render();
 	backwall.Render();
 	stick1.Render();

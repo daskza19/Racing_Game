@@ -32,10 +32,12 @@ public:
 	void CreateBoxesMap();
 
 	//Create a Constraint
-	void CreateRectConstraint(int nangle, vec3 angle, vec3 offset, vec3 size);
+	void CreateRectConstraint(int index,int nangle, vec3 angle, vec3 offset, vec3 size);
 
 public:
+	Primitive primitive;
 
+	mat4x4 mat;
 	p2DynArray<Cube> listcubes;
 
 	PhysBody3D* pb_chassis;
