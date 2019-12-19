@@ -140,6 +140,12 @@ update_status ModulePlayer::Update(float dt)
 {
 	turn = acceleration = brake = 0.0f;
 
+	if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN)
+	{
+		win = true;
+		ResetWhenLoose();
+	}
+
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 	{
 		if (vehicle->GetKmh() < -5) {
@@ -206,25 +212,23 @@ void ModulePlayer::CreateMiniumVelocity()
 
 void ModulePlayer::CheckMiniumVelocity()
 {
-	if ((vehicle->GetKmh() < actual_minimum_vel)&&(time>=10)) {
-		if (time_loose < 1) {
+	if (vehicle->GetKmh() < actual_minimum_vel) {
+		if (time >= 10){
 			win = false;
 			ResetWhenLoose();
 		}
-		else {
-			time_loose++;
-			if (time_loose == 100000) time_loose = 0;
-		}
 	}
+
 }
 
 void ModulePlayer::ResetWhenLoose()
 {
-	App->audio->PlayFx(loosesound, 1);
-	//vehicle->SetPos(0, 0, 10);
-	//vehicle->Brake(1000);
-	//acceleration = 0.0f;
-	//vehicle->ApplyEngineForce(acceleration);
-	//vehicle->Turn(0);
-	//vehicle->Brake(brake);
+	if ((((uint)time % 10) == 0)|| (win==true)) {
+		App->audio->PlayFx(loosesound, 1);
+		vehicle->ResetVelocityAndRotation();
+		App->player->acceleration = 0;
+		App->player->brake = 0;
+		App->player->turn = 0;
+		vehicle->SetPos(0, 0, 10);
+	}
 }

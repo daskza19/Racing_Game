@@ -46,6 +46,8 @@ update_status ModuleSceneIntro::Update(float dt)
 		App->player->future_minimum_vel = rand() % 60 + 50;
 	}
 
+	CreateRectConstraint(0, { 0,1,0 }, { 1,0.75,50 }, {1,1.5,1});
+
 	CreateBoxesMap();
 
 	donecolliders = true;
@@ -386,4 +388,30 @@ void ModuleSceneIntro::CreateCylinder(float nangle, vec3 angle, float height, fl
 		App->physics->AddBody(c, 0);
 	}
 	c.Render();
+}
+
+void ModuleSceneIntro::CreateRectConstraint(int nangle, vec3 angle, vec3 offset, vec3 size) {
+	Cube cube;
+	PhysBody3D*cubephys;
+	cube.size = size;
+	cube.SetPos(offset.x, offset.y, offset.z);
+	cube.color = White;
+	cube.SetRotation(nangle, angle);
+
+	Cube cube2;
+	PhysBody3D*cubephys2;
+	cube2.size = {size.x*5,size.y,size.z};
+	cube2.SetPos(offset.x-10, offset.y, offset.z);
+	cube2.color = White;
+	cube2.SetRotation(nangle, angle);
+
+
+	if (donecolliders == false) {
+		cubephys = App->physics->AddBody(cube, 1000000);
+		cubephys2 = App->physics->AddBody(cube2, 100);
+		App->physics->AddConstraintHinge(*cubephys2, *cubephys, { size.x * 2.5f,1,size.z }, { size.x,1,size.z }, { 1,0,0}, { 0,1,0}, true);
+	}
+
+	cube.Render();
+	cube2.Render();
 }

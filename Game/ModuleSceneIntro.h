@@ -23,7 +23,6 @@ public:
 
 	//Create the Boxes
 	void CreateBox(int nangle, vec3 angle,vec3 offset, vec3 size, Color color);
-
 	void CreateCylinder(float, vec3 , float, float, vec3, Color);
 
 	//Do the START boxes and Collisions
@@ -31,6 +30,9 @@ public:
 
 	//Do all the Map Boxes and Collisions
 	void CreateBoxesMap();
+
+	//Create a Constraint
+	void CreateRectConstraint(int nangle, vec3 angle, vec3 offset, vec3 size);
 
 public:
 

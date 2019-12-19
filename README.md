@@ -19,6 +19,7 @@ Special debug keys:
 
 - F1 to make the time to 100.
 - F2 to change the camera view.
+- F3 to reset.
 
 ### Autors
 - Josep Sànchez Arbona: all.
@@ -29,10 +30,10 @@ Special debug keys:
 
 ### Disclosure
 
-We do not own all of the tilesets, music or sfx presented in this game. Authors credited below
+I do not own all of the tilesets, music or sfx presented in this game. Authors credited below
 -Music: 
-	TOBY FOX - Pokemon Battle Theme
-
+	Castelvania II - Bloody Tears by Kenichi Matsubara, Masahiro Ikariko, Kazuhiko Uehara, and T-San
+	Lose Sound - https://www.youtube.com/watch?v=jAIlKqL3nHo
 
 ### License
 

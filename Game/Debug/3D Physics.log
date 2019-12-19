@@ -11,5 +11,5 @@ d:\documents\github\racing_game\game\moduleplayer.cpp(41): warning C4305: 'argum
 d:\documents\github\racing_game\game\moduleplayer.cpp(43): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 d:\documents\github\racing_game\game\moduleplayer.cpp(45): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 d:\documents\github\racing_game\game\moduleplayer.cpp(46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-d:\documents\github\racing_game\game\moduleplayer.cpp(198): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+d:\documents\github\racing_game\game\moduleplayer.cpp(204): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   3D Physics.vcxproj -> D:\Documents\GitHub\Racing_Game\Game\Debug\3D Physics - class5.exe
