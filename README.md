@@ -20,6 +20,7 @@ Special debug keys:
 - F1 to make the time to 100.
 - F2 to change the camera view.
 - F3 to reset.
+- F4 to GodMode (Avoid mininum velocity).
 
 ### Autors
 - Josep Sànchez Arbona: all.
