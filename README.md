@@ -1,24 +1,24 @@
 # Racing_Game
-##Mario Kart MAL
+## Inverse DGT
 
 This project was started as an assigment for the Physics II, subject at CITM, UPC Terrassa. Created by one student in the second year of the Videogames Design and Development career. 
 The idea was to create this mini game where you drive a car and prove some physics.
-The game consists in a race that you have to do all the lap before the time goes to 0.
+The game consists in a race that you have to drive over the mininum speed that changes every 10 seconds. If you are below the mininum speed you lose.
 
 
 ### Controls
-- W for go forward.
+- "UP" for go forward.
 
-- A for left direction.
+- "LEFT" for left direction.
 
-- D for right direction.
+- "RIGHT" for right direction.
 
-- S for go backward.
+- "DOWN" for go backward.
 
 Special debug keys:
 
 - F1 to make the time to 100.
-- F2 to make the time to 0(lose automatically).
+- F2 to change the camera view.
 
 ### Autors
 - Josep Sànchez Arbona: all.
@@ -33,8 +33,6 @@ We do not own all of the tilesets, music or sfx presented in this game. Authors 
 -Music: 
 	TOBY FOX - Pokemon Battle Theme
 
--Font: 
-	DAFONT
 
 ### License
 
